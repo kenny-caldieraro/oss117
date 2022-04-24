@@ -1,0 +1,229 @@
+/* ROOT */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+* {
+  --background-color: #fe5c10;
+}
+
+/* CONTAINER */
+
+.container {
+  background-color: var(--background-color);
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  align-self: self-start;
+  margin-top: 10rem;
+}
+
+/* TITLE */
+
+.title h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 10rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+}
+
+.title strong {
+  font-size: 5rem;
+}
+
+.title h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+img {
+  width: 50%;
+  height: auto;
+}
+
+/* QUOTE */
+
+aside {
+  position: absolute;
+  max-width: 36%;
+  margin-top: 2rem;
+}
+
+.quote,
+.author {
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+  padding-left: 1rem;
+  width: auto;
+}
+
+.author {
+  font-size: 1.2rem;
+  font-style: italic;
+  width: auto;
+}
+
+/* BUTTON */
+
+.button-49,
+.button-49:after {
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: "Bebas Neue", sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #f7831c 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px white;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-49:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: "OSS117";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 3%,
+    white 3%,
+    white 5%,
+    #fe5c10 5%
+  );
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px white;
+  clip-path: var(--slice-0);
+}
+
+.button-49:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .button-49,
+  .button-49:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .title {
+    margin-top: 0;
+    width: 100%;
+  }
+  .title h1 {
+    font-size: 8rem;
+    text-align: center;
+  }
+  .title strong {
+    font-size: 2rem;
+  }
+  .title h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 0;
+  }
+  aside {
+    position: inherit;
+    max-width: 100%;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quote,
+  .author {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin-top: 1.5rem;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+  }
+}
