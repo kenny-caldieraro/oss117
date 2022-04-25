@@ -192,6 +192,7 @@ aside {
   .title {
     margin-top: 0;
     width: 100%;
+    z-index: 2;
   }
   .title h1 {
     font-size: 8rem;
@@ -225,5 +226,6 @@ aside {
     width: 80%;
     position: absolute;
     bottom: 0;
+    z-index: 1;
   }
 }
