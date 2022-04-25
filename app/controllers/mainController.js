@@ -36,6 +36,39 @@ const mainController = {
       res.status(500).json({ error: "Server error" });
     }
   },
+
+  async quoteId(req, res) {
+    const id = Number(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "Bad request" });
+    }
+    try {
+      const quote = await Quotes.findOne({
+        where: { id: id },
+      });
+      res.json(quote);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "Server error" });
+    }
+  },
+
+  async persoName(req, res) {
+    const name = req.params.name;
+    if (!name) {
+      return res.status(400).json({ error: "Bad request" });
+    }
+    try {
+      const quote = await Quotes.findOne({
+        where: { id: 29 },
+      });
+      const perso = quote.content.split("Jack").join(name);
+      res.json({ perso });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "Server error" });
+    }
+  },
 };
 
 module.exports = mainController;
