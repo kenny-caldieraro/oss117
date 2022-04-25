@@ -1,5 +1,5 @@
 const app = {
-  mainURL: "http://localhost:3000/api/v1/",
+  mainURL: "https://oss117.click/api/v1/",
 
   init: function () {
     app.handleClick();
