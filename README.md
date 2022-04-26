@@ -15,3 +15,13 @@ https://oss117.click/api/v1/quote/all
 https://oss117.click/api/v1/quote/:id
 https://oss117.click/api/v1/perso/["name"]
 ```
+
+Response exemple :
+```json
+{
+	"id": 42,
+	"content": "Je n'y suis pour rien. C'est l'inexpugnable arrogance de votre beauté qui m'asperge.",
+	"author": "Hubert Bonnisseur de la Bath (alias OSS 117)",
+	"film": "OSS 117 : Rio ne répond plus"
+}
+```
