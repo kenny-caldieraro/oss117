@@ -16,7 +16,7 @@ https://oss117.click/api/v1/quote/:id
 https://oss117.click/api/v1/perso/["name"]
 ```
 
-Response exemple :
+Response example :
 ```json
 {
 	"id": 42,
