@@ -28,7 +28,9 @@ const mainController = {
     },
 
     async slackRandomQuote(_, res) {
-        const quote = await mainController.randomQuote();
+        const quote = await Quotes.findOne({
+            order: [Sequelize.fn('RAND')],
+        });
         res.json({
             response_type: 'in_channel',
             text: quote.content,
