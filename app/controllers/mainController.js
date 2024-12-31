@@ -28,19 +28,35 @@ const mainController = {
     },
 
     async slackRandomQuote(req, res) {
-        console.log(req.body);
-        const quote = await Quotes.findOne({
-            order: [Sequelize.fn('RAND')],
-        });
-        res.json({
-            response_type: 'in_channel',
-            text: quote.content,
-            attachments: [
-                {
-                    text: `- ${quote.author}, ${quote.film}`,
-                },
-            ],
-        });
+        const custom = req.body.text.trim();
+        if (custom.length > 0) {
+            const quote = await Quotes.findOne({
+                where: { id: 29 },
+            });
+            const perso = quote.content.split('Jack').join(custom);
+            res.json({
+                response_type: 'in_channel',
+                text: perso,
+                attachments: [
+                    {
+                        text: `- ${quote.author}, ${quote.film}`,
+                    },
+                ],
+            });
+        } else {
+            const quote = await Quotes.findOne({
+                order: [Sequelize.fn('RAND')],
+            });
+            res.json({
+                response_type: 'in_channel',
+                text: quote.content,
+                attachments: [
+                    {
+                        text: `- ${quote.author}, ${quote.film}`,
+                    },
+                ],
+            });
+        }
     },
 
     async quoteAll(_, res) {
