@@ -27,7 +27,8 @@ const mainController = {
         }
     },
 
-    async slackRandomQuote(_, res) {
+    async slackRandomQuote(req, res) {
+        console.log(req.body);
         const quote = await Quotes.findOne({
             order: [Sequelize.fn('RAND')],
         });
