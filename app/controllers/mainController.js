@@ -28,7 +28,7 @@ const mainController = {
     },
 
     async slackRandomQuote(req, res) {
-        const custom = req.body.text.trim();
+        const custom = (req.body?.text || '').trim();
         if (custom.length > 0) {
             const quote = await Quotes.findOne({
                 where: { id: 29 },
