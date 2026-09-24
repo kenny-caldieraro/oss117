@@ -3,16 +3,21 @@ const { Sequelize } = require('sequelize');
 
 const mainController = {
     error404(_, res) {
-        res.status(404).render('404');
+        res.status(404).render('404', { meta: null });
+    },
+
+    // Express 5 sends errors thrown in async handlers here.
+    error500(error, req, res, _next) {
+        console.log(error);
+        if (req.path.startsWith('/api/')) {
+            return res.status(500).json({ error: 'Server error' });
+        }
+        res.status(500).render('404', { meta: null, serverError: true });
     },
 
     logUrl(req, _, next) {
         console.log(req.url);
         next();
-    },
-
-    mainUrl(_, res) {
-        res.render('index', {});
     },
 
     async randomQuote(_, res) {

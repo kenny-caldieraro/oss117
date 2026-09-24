@@ -1,18 +1,27 @@
 const app = {
   apiURL: "/api/v1/",
-  currentQuote: null,
 
   init: function () {
     const getQuote = document.getElementById("getQuote");
-    if (!getQuote) return;
+    if (getQuote) getQuote.addEventListener("click", app.getQuote);
 
-    getQuote.addEventListener("click", app.getQuote);
-    document.getElementById("copyQuote").addEventListener("click", app.copyQuote);
+    const copyQuote = document.getElementById("copyQuote");
+    if (copyQuote) copyQuote.addEventListener("click", app.copyQuote);
+
     document.querySelectorAll(".endpoint").forEach(function (button) {
       button.addEventListener("click", app.tryEndpoint);
     });
+  },
 
-    app.getQuote();
+  // Same rule as filmSlug() in app/seo.js.
+  filmSlug: function (film) {
+    return film
+      .replace(/^OSS 117\s*:\s*/i, "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
   },
 
   getQuote: async function () {
@@ -36,19 +45,28 @@ const app = {
   },
 
   viewQuote: function (data) {
-    app.currentQuote = data;
-    document.getElementById("quoteId").textContent = String(data.id ?? 117).padStart(3, "0");
+    const id = document.getElementById("quoteId");
+    const film = document.getElementById("film");
+
+    id.textContent = String(data.id ?? 117).padStart(3, "0");
+    id.href = data.film ? "/replique/" + data.id : "/repliques";
     document.getElementById("quote").textContent = data.content;
     document.getElementById("author").textContent = data.author;
-    document.getElementById("film").textContent = data.film || "";
+
+    film.textContent = "";
+    if (data.film) {
+      const link = document.createElement("a");
+      link.href = "/film/" + app.filmSlug(data.film);
+      link.textContent = data.film;
+      film.appendChild(link);
+    }
   },
 
   copyQuote: async function (event) {
     const button = event.currentTarget;
-    const quote = app.currentQuote;
-    if (!quote) return;
+    const text = (id) => document.getElementById(id).textContent.trim();
     try {
-      await navigator.clipboard.writeText(`« ${quote.content} » — ${quote.author}, ${quote.film}`);
+      await navigator.clipboard.writeText(`« ${text("quote")} » — ${text("author")}, ${text("film")}`);
       button.textContent = "Copié !";
     } catch (error) {
       button.textContent = "Raté…";

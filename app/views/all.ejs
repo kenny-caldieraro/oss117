@@ -1,0 +1,19 @@
+<%- include('./partials/header') %>
+
+<main class="page">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a> › Répliques
+  </nav>
+
+  <p class="kicker">Les archives</p>
+  <h1 class="page__title">Toutes les répliques d'OSS 117</h1>
+
+  <% films.forEach(function (film) { %>
+  <section class="page__section">
+    <h2><a href="/film/<%= film.slug %>"><%= film.name %></a> <small><%= film.count %> répliques</small></h2>
+    <%- include('./partials/quote-list', { quotes: film.quotes }) %>
+  </section>
+  <% }) %>
+</main>
+
+<%- include('./partials/footer') %>

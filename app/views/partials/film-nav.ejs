@@ -1,0 +1,9 @@
+<nav class="film-nav" aria-label="Les autres films">
+  <p class="kicker">Les autres dossiers</p>
+  <ul>
+    <% films.filter(function (item) { return item.slug !== current; }).forEach(function (item) { %>
+    <li><a href="/film/<%= item.slug %>"><%= item.name %> <small>(<%= item.count %>)</small></a></li>
+    <% }) %>
+    <li><a href="/repliques">Toutes les répliques</a></li>
+  </ul>
+</nav>
