@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `quotes` (
   `author` varchar(255) NOT NULL,
   `film` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `quotes`
@@ -92,7 +92,24 @@ INSERT INTO `quotes` (`id`, `content`, `author`, `film`) VALUES
 (49, 'Chou blanc donc...', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Rio ne répond plus'),
 (50, 'Des millions ?! Haha, des millions ! Vous êtes charmante mais vous voyez déjà ce que ça fait un million Larmina ?', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Le Caire, nid d\'espions'),
 (51, 'Vous voyez l\'automobile derrière moi ? Ça fait un petit moment que je l\'observe.. elle est absolument impeccable.. C\'est quand même bien mieux une voiture propre, non ? À l\'occasion, je vous mettrai un petit coup de polish.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Le Caire, nid d\'espions'),
-(52, 'Voilà Dolorès, cadeau ... de Noël ! Non je dis Noël, c\'est par rapport à mon prénom. Sinon il y ... il y a aussi les boules... Oh si, ça c\'est rigolo ! Il faut absolument que j\'appelle Armand !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Rio ne répond plus');
+(52, 'Voilà Dolorès, cadeau ... de Noël ! Non je dis Noël, c\'est par rapport à mon prénom. Sinon il y ... il y a aussi les boules... Oh si, ça c\'est rigolo ! Il faut absolument que j\'appelle Armand !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Rio ne répond plus'),
+(53, 'Je vous répondrais « Oui », ce serait de la prétention ; je vous répondrais « Non », ce serait de la bêtise.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(54, 'Mais qu\'est-ce que c\'est que ces préjugés !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(55, 'Attention, je n\'ai rien contre la modernité ; mais ça ne marche pas.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(56, 'En ce moment, ils voient du racisme partout.', 'Armand Lesignac', 'OSS 117 : Alerte rouge en Afrique noire'),
+(57, 'J\'en étais sûr. On ne parle jamais allemand par plaisir.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(58, 'Parfait ! Le temps d\'enfiler mon costume colonial… blanc... clair ! Mon costume clair…', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(59, 'L\'indépendance. Oui… on m\'a dit ça.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(60, 'Il y a quand même un hic et un hic de taille. Vous êtes une femme et une femme présidente… Je suis agent secret. Pas nourrice.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(61, 'Désolé, je crois que c\'est mon taxi.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(62, 'Chaque espèce, la plus dangereuse soit-elle, a son prédateur. Je suis leur prédateur.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(63, 'Les Africains sont joyeux, sympathiques, rigolards, ils dansent bien. Il faut cependant nuancer…', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(64, 'Si on n\'accepte pas les défauts de ses amis, alors on n\'a pas d\'amis.', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(65, 'Tout va bien : je suis Français ! (…) Je ne suis pas raciste, je porte vos robes !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(66, 'Bas les pattes Bamba !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(67, 'L\'Afrique contente, c\'est une France prospère !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(68, 'Quel boulot la démocratie avec tous ces putsch !', 'Hubert Bonnisseur de la Bath (alias OSS 117)', 'OSS 117 : Alerte rouge en Afrique noire'),
+(69, 'Faites nous basculer dans le XXIe siècle !', 'Armand Lesignac', 'OSS 117 : Alerte rouge en Afrique noire');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
