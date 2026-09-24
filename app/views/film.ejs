@@ -1,0 +1,16 @@
+<%- include('./partials/header') %>
+
+<main class="page">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a> › <a href="/repliques">Répliques</a> › <%= film.shortName %>
+  </nav>
+
+  <p class="kicker">Dossier · <%= film.count %> répliques</p>
+  <h1 class="page__title">Les répliques cultes de <%= film.name %></h1>
+
+  <%- include('./partials/quote-list', { quotes }) %>
+
+  <%- include('./partials/film-nav', { films, current: film.slug }) %>
+</main>
+
+<%- include('./partials/footer') %>

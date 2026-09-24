@@ -1,0 +1,10 @@
+<article class="dossier" aria-live="polite">
+  <header class="dossier__head">
+    <span>Dossier n°&nbsp;<a id="quoteId" href="<%= quote ? '/replique/' + quote.id : '/repliques' %>"><%= quote ? String(quote.id).padStart(3, '0') : '117' %></a></span>
+    <span class="dossier__stamp">Confidentiel</span>
+  </header>
+  <% const quoteTag = locals.asHeading ? 'h1' : 'blockquote'; %>
+  <<%= quoteTag %> class="dossier__quote" id="quote"><%= quote ? quote.content : "Je ne peux pas vous répondre, l'API ne répond plus." %></<%= quoteTag %>>
+  <p class="dossier__author" id="author"><%= quote ? quote.author : 'Le serveur' %></p>
+  <p class="dossier__film" id="film"><% if (quote) { %><a href="/film/<%= quote.filmSlug %>"><%= quote.film %></a><% } %></p>
+</article>

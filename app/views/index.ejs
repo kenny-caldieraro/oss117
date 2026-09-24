@@ -4,20 +4,10 @@
   <section class="hero">
     <div class="hero__text">
       <p class="kicker">Les meilleures répliques, servies par une API</p>
-      <h1 class="hero__title">OSS<span>117</span></h1>
+      <h1 class="hero__title">OSS<span>117</span><span class="sr-only"> : les répliques cultes</span></h1>
       <h2 class="hero__subtitle">Le Caire, nid d'API</h2>
 
-      <article class="dossier" aria-live="polite">
-        <header class="dossier__head">
-          <span>Dossier n°&nbsp;<span id="quoteId">117</span></span>
-          <span class="dossier__stamp">Confidentiel</span>
-        </header>
-        <blockquote class="dossier__quote" id="quote">
-          Chargement de la réplique…
-        </blockquote>
-        <p class="dossier__author" id="author"></p>
-        <p class="dossier__film" id="film"></p>
-      </article>
+      <%- include('./partials/dossier', { quote }) %>
 
       <div class="actions">
         <button class="btn btn--glitch" id="getQuote" type="button">Une autre réplique</button>
@@ -26,7 +16,25 @@
     </div>
 
     <div class="hero__visual">
-      <img src="/images/bg.png" alt="Hubert Bonnisseur de la Bath, pistolet à la main" width="800" height="800" />
+      <%- include('./partials/hero-image') %>
+    </div>
+  </section>
+
+  <section class="films" id="films">
+    <div class="films__inner">
+      <p class="kicker">Les archives</p>
+      <h2 class="section-title">Les répliques par film</h2>
+      <ul class="films__grid">
+        <% films.forEach(function (film) { %>
+        <li>
+          <a class="film-card" href="/film/<%= film.slug %>">
+            <span class="film-card__count"><%= film.count %> répliques<% if (film.year) { %> · <%= film.year %><% } %></span>
+            <span class="film-card__name"><%= film.shortName %></span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+      <p class="films__all"><a href="/repliques">Voir toutes les répliques →</a></p>
     </div>
   </section>
 

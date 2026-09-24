@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+
+<main class="page">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a> › <a href="/film/<%= quote.filmSlug %>"><%= quote.filmShortName %></a> › Réplique n°&nbsp;<%= quote.id %>
+  </nav>
+
+  <p class="kicker">Réplique culte · <%= quote.filmShortName %><% if (quote.filmYear) { %> (<%= quote.filmYear %>)<% } %></p>
+
+  <%- include('./partials/dossier', { quote, asHeading: true }) %>
+
+  <div class="actions">
+    <button class="btn btn--ghost" id="copyQuote" type="button">Copier</button>
+    <a class="btn" href="/film/<%= quote.filmSlug %>">Toutes les répliques du film</a>
+  </div>
+
+  <nav class="pager" aria-label="Autres répliques">
+    <% if (previous) { %><a rel="prev" href="/replique/<%= previous.id %>">← Réplique précédente</a><% } else { %><span></span><% } %>
+    <% if (following) { %><a rel="next" href="/replique/<%= following.id %>">Réplique suivante →</a><% } %>
+  </nav>
+
+  <aside class="page__api">
+    <p>Cette réplique est aussi disponible dans l'API :</p>
+    <code><a href="/api/v1/quote/<%= quote.id %>">/api/v1/quote/<%= quote.id %></a></code>
+  </aside>
+</main>
+
+<%- include('./partials/footer') %>

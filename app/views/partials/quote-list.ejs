@@ -1,0 +1,10 @@
+<ol class="quote-list">
+  <% quotes.forEach(function (item) { %>
+  <li class="quote-list__item">
+    <a href="/replique/<%= item.id %>">
+      <q><%= item.content %></q>
+      <span class="quote-list__author"><%= item.author %></span>
+    </a>
+  </li>
+  <% }) %>
+</ol>

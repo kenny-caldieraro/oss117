@@ -2,13 +2,17 @@
 
 <main class="hero hero--404">
   <div class="hero__text">
-    <p class="kicker">Erreur 404</p>
+    <p class="kicker">Erreur <%= locals.serverError ? '500' : '404' %></p>
     <h1 class="hero__title">L'API<br />ne répond plus</h1>
+    <% if (locals.serverError) { %>
+    <p class="hero__lead">Le serveur a un petit coup de fatigue. Mais enfin il va se ressaisir, réessayez dans un instant.</p>
+    <% } else { %>
     <p class="hero__lead">Cette page n'existe pas. Ou alors elle est très bien cachée, comme un nid d'espions.</p>
+    <% } %>
     <a class="btn" href="/">Retour au Caire</a>
   </div>
   <div class="hero__visual">
-    <img src="/images/bg.png" alt="Hubert Bonnisseur de la Bath, pistolet à la main" width="800" height="800" />
+    <%- include('./partials/hero-image') %>
   </div>
 </main>
 

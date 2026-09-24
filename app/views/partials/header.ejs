@@ -4,18 +4,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Les meilleures répliques d'OSS 117, servies par une API libre et gratuite." />
+<% if (locals.meta) { %>
+  <title><%= meta.title %></title>
+  <meta name="description" content="<%= meta.description %>" />
+  <link rel="canonical" href="<%= meta.canonical %>" />
+  <meta property="og:type" content="<%= meta.type %>" />
+  <meta property="og:site_name" content="<%= meta.siteName %>" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="<%= meta.title %>" />
+  <meta property="og:description" content="<%= meta.description %>" />
+  <meta property="og:url" content="<%= meta.canonical %>" />
+  <meta property="og:image" content="<%= meta.image %>" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= meta.title %>" />
+  <meta name="twitter:description" content="<%= meta.description %>" />
+  <meta name="twitter:image" content="<%= meta.image %>" />
+  <% if (meta.jsonLd) { %><script type="application/ld+json"><%- meta.jsonLd %></script><% } %>
+<% } else { %>
+  <title>Page introuvable — OSS 117</title>
+  <meta name="robots" content="noindex" />
+<% } %>
   <meta name="theme-color" content="#fe5c10" />
-  <meta property="og:title" content="OSS 117 — Le Caire, nid d'API" />
-  <meta property="og:description" content="Les meilleures répliques d'OSS 117, servies par une API libre et gratuite." />
-  <meta property="og:image" content="/images/bg.png" />
   <meta name="exoclick-site-verification" content="b2ee881b510c3d5edb1b8df8b24ccde3" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" />
-  <link rel="stylesheet" href="/css/reset.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <title>OSS 117 — Le Caire, nid d'API</title>
+  <link rel="stylesheet" href="/css/reset.css?v=<%= assetVersion %>" />
+  <link rel="stylesheet" href="/css/style.css?v=<%= assetVersion %>" />
 </head>
 
 <!--   Conception Kenny Caldieraro - Web Playground
@@ -39,8 +58,8 @@
   <nav class="nav">
     <a class="nav__brand" href="/">OSS<span>117</span></a>
     <ul class="nav__links">
+      <li><a href="/repliques">Répliques</a></li>
       <li><a href="/#api">L'API</a></li>
-      <li><a href="/#slack">Slack</a></li>
       <li><a href="https://github.com/kenny-caldieraro/oss117" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
   </nav>
