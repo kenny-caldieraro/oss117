@@ -1,14 +1,98 @@
 <%- include('./partials/header') %>
 
-<header class="title">
-  <h1>OSS<strong>117</strong></h1>
-  <h2>Le Caire, nid d'API</h2>
-  <aside>
-    <button class="button-49" id="getQuote">Get quote</button>
-    <p class="quote"></p>
-    <p class="author"></p>
-  </aside>
-</header>
-<img src="/images/bg.png" alt="logo oss 117">
+<main>
+  <section class="hero">
+    <div class="hero__text">
+      <p class="kicker">Les meilleures répliques, servies par une API</p>
+      <h1 class="hero__title">OSS<span>117</span></h1>
+      <h2 class="hero__subtitle">Le Caire, nid d'API</h2>
+
+      <article class="dossier" aria-live="polite">
+        <header class="dossier__head">
+          <span>Dossier n°&nbsp;<span id="quoteId">117</span></span>
+          <span class="dossier__stamp">Confidentiel</span>
+        </header>
+        <blockquote class="dossier__quote" id="quote">
+          Chargement de la réplique…
+        </blockquote>
+        <p class="dossier__author" id="author"></p>
+        <p class="dossier__film" id="film"></p>
+      </article>
+
+      <div class="actions">
+        <button class="btn btn--glitch" id="getQuote" type="button">Une autre réplique</button>
+        <button class="btn btn--ghost" id="copyQuote" type="button">Copier</button>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <img src="/images/bg.png" alt="Hubert Bonnisseur de la Bath, pistolet à la main" width="800" height="800" />
+    </div>
+  </section>
+
+  <section class="api" id="api">
+    <div class="api__inner">
+      <p class="kicker">Ordre de mission</p>
+      <h2 class="section-title">L'API</h2>
+      <p class="api__intro">
+        Gratuite, sans clé, en JSON. Cliquez sur un endpoint pour voir la réponse en direct.
+      </p>
+
+      <div class="api__grid">
+        <ul class="endpoints">
+          <li>
+            <button class="endpoint is-active" type="button" data-path="quote/random">
+              <span class="endpoint__verb">GET</span>
+              <code>/api/v1/quote/random</code>
+              <span class="endpoint__desc">Une réplique au hasard</span>
+            </button>
+          </li>
+          <li>
+            <button class="endpoint" type="button" data-path="quote/42">
+              <span class="endpoint__verb">GET</span>
+              <code>/api/v1/quote/:id</code>
+              <span class="endpoint__desc">Une réplique précise</span>
+            </button>
+          </li>
+          <li>
+            <button class="endpoint" type="button" data-path="quote/all">
+              <span class="endpoint__verb">GET</span>
+              <code>/api/v1/quote/all</code>
+              <span class="endpoint__desc">Toutes les répliques</span>
+            </button>
+          </li>
+          <li>
+            <button class="endpoint" type="button" data-path="perso/Jean-Pierre">
+              <span class="endpoint__verb">GET</span>
+              <code>/api/v1/perso/:name</code>
+              <span class="endpoint__desc">« C'est la piquette, Jack ! » avec le prénom de votre choix</span>
+            </button>
+          </li>
+        </ul>
+
+        <div class="console">
+          <div class="console__bar">
+            <span class="console__url" id="consoleUrl">GET /api/v1/quote/random</span>
+          </div>
+          <pre class="console__body" id="consoleBody">{
+  "id": 42,
+  "content": "Je n'y suis pour rien. C'est l'inexpugnable arrogance de votre beauté qui m'asperge.",
+  "author": "Hubert Bonnisseur de la Bath (alias OSS 117)",
+  "film": "OSS 117 : Rio ne répond plus"
+}</pre>
+        </div>
+      </div>
+
+      <div class="slack" id="slack">
+        <h3>Sur Slack</h3>
+        <p>
+          Créez une slash command qui pointe en <code>POST</code> vers
+          <code>/api/v1/quote/slack_random</code>. Tapez <code>/oss117</code> pour une réplique au hasard,
+          ou <code>/oss117 Bob</code> pour envoyer la piquette à Bob.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
 
 <%- include('./partials/footer') %>
